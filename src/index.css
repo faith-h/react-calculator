@@ -1,0 +1,125 @@
+/* Made use of rem, flexbox and grid to make design responsive
+Also used css variables for reused colors and easy theme toggling */
+:root {
+  --orange: #FA9C1B;
+  --white: #F6F6F6;
+  --black: #181818;
+
+  font-synthesis: none;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--white);
+}
+
+.dark {
+  --white: #181818;
+  --black: #F6F6F6;
+}
+
+body, input, button, .toggler {
+  font-family: 'Chakra Petch', sans-serif;
+  transition: background-color 300ms ease;
+  user-select: none;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* remove outline when container is focused for keyboard events */
+  outline: none;
+}
+
+.header {
+  margin: 0;
+  width: 23rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--black);
+}
+
+.calculator {
+  width: 20rem;
+  padding: 2.5rem 1.5rem;
+  border-radius: 20px;
+  background-color: #358856;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+input {
+  padding: 0;
+  margin-bottom: 1rem;
+  width: 20rem;
+  font-size: 3rem;
+  text-align: right;
+  color: #F6F6F6;
+  border: none;
+  background: transparent;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, minmax(1rem, 5rem));
+}
+
+button {
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 20px;
+  color: var(--white);
+  background: var(--black);
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+}
+
+button:active {
+  color: var(--orange);
+}
+
+.button-primary {
+  color: var(--black);
+  background: var(--orange);
+}
+
+.button-primary.wide {
+  grid-column: span 2 / auto;
+}
+
+.operand {
+  color: var(--orange);
+}
+
+.operand:active, .button-primary:active {
+  color: var(--white);
+}
+
+.toggler {
+  height: 2rem;
+  width: 3rem;
+  cursor: pointer !important;
+  text-align: center;
+  font-size: 1.5rem;
+  border-radius: 20px;
+  color: var(--white);
+  background: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
